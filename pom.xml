@@ -15,7 +15,9 @@
 	<name>aztec-web</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.tager>17</maven.compiler.tager>
 	</properties>
 	<dependencies>
 

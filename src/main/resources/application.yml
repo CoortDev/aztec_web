@@ -9,8 +9,8 @@ spring:
         activate:
             on-profile: dev
     datasource:
-        password: 1234Abc
-        url: jdbc:postgresql://localhost:5432/huitzilopochtli_db
+        password: 12345Abc
+        url: jdbc:postgresql://huitzilopochtli-db.c3eqiuwkqasm.us-east-2.rds.amazonaws.com:5432/huitzilopochtli_db
         username: postgres
     jpa:
         database: POSTGRESQL
