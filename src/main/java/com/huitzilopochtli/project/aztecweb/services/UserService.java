@@ -2,10 +2,10 @@ package com.huitzilopochtli.project.aztecweb.services;
 
 import java.util.List;
 
-import com.huitzilopochtli.project.aztecweb.entities.UserEntity;
+import com.huitzilopochtli.project.aztecweb.dtos.UserDto;
 
 public interface UserService {
-    List<UserEntity> findAll();
+    List<UserDto> findAll();
 
-    UserEntity save(UserEntity user);
+    UserDto save(UserDto user);
 }

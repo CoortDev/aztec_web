@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.huitzilopochtli.project.aztecweb.entities.UserEntity;
+import com.huitzilopochtli.project.aztecweb.dtos.UserDto;
 import com.huitzilopochtli.project.aztecweb.services.UserService;
 
 
@@ -27,7 +27,7 @@ public class UserController {
     /** 
      * * Cuando no existe una ruta en un GetMapping significa que toma solo la ruta del RequestMapping */
     @GetMapping
-    public List<UserEntity> list(){
+    public List<UserDto> list(){
         return userService.findAll();
     }
 
@@ -35,14 +35,21 @@ public class UserController {
      * *Cuando no existe una ruta en un PostMapping significa que toma solo la ruta del RequestMapping */
     @PostMapping
     @PreAuthorize("hasRole('ADMIN', 'USER')")
-    public ResponseEntity<UserEntity> create(@RequestBody UserEntity user) {
+    public ResponseEntity<UserDto> create(@RequestBody UserDto user) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody UserEntity user) {
+    public ResponseEntity<?> register(@RequestBody UserDto user) {
         user.setAdmin(false);
+        System.out.println(user);
         return create(user);
     }
+
+    @PostMapping("new_user")
+    public ResponseEntity<UserDto> createNewUser(@RequestBody UserDto user) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
+    }
+    
     
 }
